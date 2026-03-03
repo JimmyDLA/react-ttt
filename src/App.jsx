@@ -115,12 +115,12 @@ function App() {
   }
 
   const getWinningTitle = () => {
-    if (winner === null) return;
+    if (winner === null) return <div className="winner-title"></div>;
 
     if (winner === 'NONE') {
-      return <h2>IT'S A DRAW</h2>
+      return <div className="winner-title"><h2 className="winner-text" style={{color: '#aaa', textShadow: 'none'}}>IT'S A DRAW</h2></div>
     } else {
-      return <h2>WINNER IS: {winner}</h2>
+      return <div className="winner-title"><h2 className="winner-text">WINNER IS: {winner}</h2></div>
     }
   }
 
@@ -139,7 +139,7 @@ function App() {
           />
         ))}
       </div>
-      <h2>Who's turn is it: {turn}</h2>
+      <div className="turn-indicator">Whose turn is it: <span className={turn === 'X' ? 'x-turn' : 'o-turn'}>{turn}</span></div>
       <button className="restart" onClick={handleRestart}>Restart</button>
     </>
   );
